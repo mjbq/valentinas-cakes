@@ -32,22 +32,9 @@ export interface ProductCustomization {
 }
 
 export interface CartItem {
-
-  // Identificador único del producto dentro del carrito
-  id: string;
-
-  // Id del producto del catálogo
   productId: string;
-
-  // Cantidad
   quantity: number;
-
-  // Personalización
   customization?: ProductCustomization;
-
-  // Fecha de creación (nos servirá para ordenar el carrito)
-  createdAt: number;
-
 }
 
 export interface ContactFormData {

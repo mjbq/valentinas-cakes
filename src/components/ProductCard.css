@@ -43,9 +43,9 @@ rgba(0,0,0,.08)
 }
 
 .product-card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
   object-position: center top;
 }
 

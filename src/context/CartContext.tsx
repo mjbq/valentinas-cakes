@@ -13,11 +13,11 @@ interface CartSummary {
     customization?: ProductCustomization
   ) => { ok: boolean; message?: string };
 
-  removeFromCart: (cartItemId: string) => void;
+  removeFromCart: (productId: string) => void;
 
-  increaseQuantity: (cartItemId: string) => void;
+  increaseQuantity: (productId: string) => void;
 
-  decreaseQuantity: (cartItemId: string) => void;
+  decreaseQuantity: (productId: string) => void;
 
   clearCart: () => void;
 
@@ -63,101 +63,118 @@ export function CartProvider({
     customization?: ProductCustomization
   ): { ok: boolean; message?: string } {
 
-    const product = getProduct(productId);
+  const product = getProduct(productId);
 
-    if (!product) {
-      return {
-        ok: false,
-        message: "Producto no encontrado.",
-      };
-    }
-
-    if (product.stock <= 0) {
-      return {
-        ok: false,
-        message: "Producto sin stock disponible.",
-      };
-    }
-
-    const stockUpdated = decreaseStock(productId, 1);
-
-    if (!stockUpdated) {
-      return {
-        ok: false,
-        message: "No hay suficiente stock disponible.",
-      };
-    }
-
-    const newItem: CartItem = {
-      id: crypto.randomUUID(),
-      productId,
-      quantity: 1,
-      customization,
-      createdAt: Date.now(),
-    };
-
-    setItems((prev) => [...prev, newItem]);
-
+  if (!product) {
     return {
-      ok: true,
+      ok: false,
+      message: "Producto no encontrado.",
     };
   }
 
-
-  function removeFromCart(cartItemId: string) {
-    const item = items.find((i) => i.id === cartItemId);
-
-    if (!item) return;
-
-    increaseStock(item.productId, item.quantity);
-
-    setItems((prev) => prev.filter((i) => i.id !== cartItemId));
+  if (product.stock <= 0) {
+    return {
+      ok: false,
+      message: "Producto sin stock disponible.",
+    };
   }
 
-  function increaseQuantity(cartItemId: string) {
-    const item = items.find((i) => i.id === cartItemId);
+  const stockUpdated = decreaseStock(productId, 1);
 
-    if (!item) return;
+  if (!stockUpdated) {
+    return {
+      ok: false,
+      message: "No hay suficiente stock disponible.",
+    };
+  }
 
-    const stockUpdated = decreaseStock(item.productId, 1);
-
-    if (!stockUpdated) return;
-
-    setItems((prev) =>
-      prev.map((i) =>
-        i.id === cartItemId
-          ? {
-              ...i,
-              quantity: i.quantity + 1,
-            }
-          : i
-      )
+  setItems((prev) => {
+    const existingItem = prev.find(
+      (item) => item.productId === productId
     );
+
+    if (existingItem) {
+  return prev.map((item) =>
+    item.productId === productId
+      ? {
+          ...item,
+          quantity: item.quantity + 1,
+          customization:
+            customization ?? item.customization,
+        }
+      : item
+  );
+}
+
+    return [
+      ...prev,
+      {
+        productId,
+        quantity: 1,
+        customization,
+      },
+    ];
+  });
+
+  return { ok: true };
+}
+
+function removeFromCart(productId: string) {
+  const item = items.find((i) => i.productId === productId);
+
+  if (!item) return;
+
+  increaseStock(productId, item.quantity);
+
+  setItems((prev) =>
+    prev.filter((i) => i.productId !== productId)
+  );
+}
+
+function increaseQuantity(productId: string) {
+  const item = items.find((i) => i.productId === productId);
+
+  if (!item) return;
+
+  const stockUpdated = decreaseStock(productId, 1);
+
+  if (!stockUpdated) return;
+
+  setItems((prev) =>
+    prev.map((i) =>
+      i.productId === productId
+        ? {
+            ...i,
+            quantity: i.quantity + 1,
+          }
+        : i
+    )
+  );
+}
+
+function decreaseQuantity(productId: string) {
+  const item = items.find((i) => i.productId === productId);
+
+  if (!item) return;
+
+  if (item.quantity === 1) {
+    removeFromCart(productId);
+    return;
   }
 
-  function decreaseQuantity(cartItemId: string) {
-    const item = items.find((i) => i.id === cartItemId);
+  increaseStock(productId, 1);
 
-    if (!item) return;
-
-    if (item.quantity === 1) {
-      removeFromCart(cartItemId);
-      return;
-    }
-
-    increaseStock(item.productId, 1);
-
-    setItems((prev) =>
-      prev.map((i) =>
-        i.id === cartItemId
-          ? {
-              ...i,
-              quantity: i.quantity - 1,
-            }
-          : i
-      )
-    );
-  }
+  setItems((prev) =>
+    prev.map((i) =>
+      i.productId === productId
+        ? {
+            ...i,
+            quantity: i.quantity - 1,
+          }
+        : i
+    )
+  );
+}
 
   function clearCart() {
     if (items.length === 0) return;

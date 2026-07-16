@@ -87,7 +87,7 @@ function handleClearCart() {
                 product.price;
               return (
                 <div
-                  key={item.id}
+                  key={item.productId}
                   className="cart-item card"
                 >
                   <img
@@ -163,7 +163,7 @@ function handleClearCart() {
        <button
           className="quantity-btn"
             onClick={() =>
-          decreaseQuantity(item.id)
+          decreaseQuantity(item.productId)
                         }
                       >
             <i className="bi bi-dash"></i>
@@ -176,7 +176,7 @@ function handleClearCart() {
       <button
           className="quantity-btn"
           onClick={() =>
-          increaseQuantity(item.id)
+          increaseQuantity(item.productId)
           }
           disabled={product.stock <= 0}
              >
@@ -199,7 +199,7 @@ function handleClearCart() {
   <button
       className="cart-item__remove"
        onClick={() =>
-       removeFromCart(item.id)
+       removeFromCart(item.productId)
       }
      >
       <i className="bi bi-trash"></i> Eliminar
