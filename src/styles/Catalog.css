@@ -1,0 +1,515 @@
+/*=========================================
+        CATÁLOGO
+==========================================*/
+
+.catalog{
+
+    padding:60px 0;
+
+    background:#fff8fb;
+
+    min-height:100vh;
+
+}
+
+.catalog h1{
+
+    text-align:center;
+
+    color:#9b4b68;
+
+    margin-bottom:15px;
+
+    font-size:2.4rem;
+
+    font-weight:700;
+
+}
+
+.catalog__subtitle{
+
+    text-align:center;
+
+    color:#777;
+
+    margin-bottom:45px;
+
+}
+
+/*=========================================
+            GRID
+==========================================*/
+
+.catalog__grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+/*=========================================
+            TARJETA
+==========================================*/
+
+.product-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    border:2px solid transparent;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:border-color .3s,
+               box-shadow .3s;
+
+}
+
+.product-card:hover{
+
+    border-color:#e5b6c8;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.10);
+
+}
+/*=========================================
+            IMAGEN
+==========================================*/
+
+.product-card__image{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#fafafa;
+
+}
+
+/*=========================================
+            CONTENIDO
+==========================================*/
+
+.product-card__body{
+
+    padding:22px;
+
+}
+
+.product-card__category{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    background:#f7dce7;
+
+    color:#914868;
+
+    border-radius:20px;
+
+    font-size:.80rem;
+
+    font-weight:600;
+
+    margin-bottom:14px;
+
+}
+
+.product-card h3{
+
+    color:#823654;
+
+    font-size:1.35rem;
+
+    margin-bottom:12px;
+
+    line-height:1.3;
+
+}
+
+.product-card__description{
+
+    color:#666;
+
+    line-height:1.6;
+
+    min-height:70px;
+
+    margin-bottom:18px;
+
+}
+
+/*=========================================
+            PRECIOS
+==========================================*/
+
+.product-card__price-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:18px;
+
+}
+
+.product-card__price{
+
+    font-size:1.7rem;
+
+    font-weight:700;
+
+    color:#b04671;
+
+}
+
+.product-card__price-old{
+
+    text-decoration:line-through;
+
+    color:#999;
+
+    font-size:1rem;
+
+}
+
+.product-card__price-offer{
+
+    font-size:1.8rem;
+
+    color:#d63384;
+
+    font-weight:700;
+
+}
+
+/*=========================================
+            OFERTA
+==========================================*/
+
+.product-card__badge{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    background:#d63384;
+
+    color:white;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    font-size:.80rem;
+
+    font-weight:700;
+
+    letter-spacing:.4px;
+
+}
+
+/*=========================================
+            STOCK
+==========================================*/
+
+.product-card__stock{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    background:#edf8ef;
+
+    color:#2e7d32;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+.product-card__stock.is-out{
+
+    background:#fdecec;
+
+    color:#c62828;
+
+}
+
+/*=========================================
+            BOTONES
+==========================================*/
+
+.product-card__actions{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+.product-card__actions .btn{
+
+    flex:1;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    font-weight:600;
+
+}
+/*=========================================
+            FILTROS
+==========================================*/
+
+.catalog__filters{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
+
+.catalog__filters select,
+.catalog__filters input{
+
+    min-width:220px;
+
+    padding:12px 18px;
+
+    border:2px solid #edd3dd;
+
+    border-radius:12px;
+
+    background:#fff;
+
+    color:#555;
+
+    font-size:1rem;
+
+    outline:none;
+
+    transition:border-color .3s;
+
+}
+
+.catalog__filters select:focus,
+.catalog__filters input:focus{
+
+    border-color:#b04671;
+
+}
+
+/*=========================================
+            BOTONES
+==========================================*/
+
+.product-card .btn{
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    padding:12px 18px;
+
+    transition:background-color .3s,
+               color .3s,
+               border-color .3s;
+
+}
+
+.product-card .btn-primary{
+
+    background:#b04671;
+
+    border:none;
+
+    color:#fff;
+
+}
+
+.product-card .btn-primary:hover{
+
+    background:#93365a;
+
+}
+
+.product-card .btn-secondary{
+
+    background:#fff;
+
+    border:2px solid #b04671;
+
+    color:#b04671;
+
+}
+
+.product-card .btn-secondary:hover{
+
+    background:#fdf4f8;
+
+}
+
+/*=========================================
+            SIN PRODUCTOS
+==========================================*/
+
+.catalog__empty{
+
+    text-align:center;
+
+    padding:80px 20px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    color:#777;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+
+}
+
+.catalog__empty h2{
+
+    color:#9b4b68;
+
+    margin-bottom:15px;
+
+}
+
+/*=========================================
+            RESPONSIVE
+==========================================*/
+
+@media (max-width:992px){
+
+    .catalog{
+
+        padding:40px 0;
+
+    }
+
+    .catalog__grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:24px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .catalog__grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .product-card__image{
+
+        height:240px;
+
+    }
+
+    .catalog__filters{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .catalog__filters select,
+    .catalog__filters input{
+
+        width:100%;
+
+        max-width:350px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .catalog h1{
+
+        font-size:2rem;
+
+    }
+
+    .product-card__body{
+
+        padding:18px;
+
+    }
+
+    .product-card__image{
+
+        height:220px;
+
+    }
+
+    .product-card__price{
+
+        font-size:1.5rem;
+
+    }
+
+    .product-card__price-offer{
+
+        font-size:1.6rem;
+
+    }
+
+}
+
+/*=========================================
+        TRANSICIONES SUAVES
+==========================================*/
+
+.product-card,
+.product-card__image,
+.product-card .btn,
+.product-card__stock,
+.product-card__badge{
+
+    transition:all .30s ease;
+
+}

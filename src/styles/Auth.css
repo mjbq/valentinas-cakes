@@ -1,0 +1,49 @@
+.auth {
+  padding: 2rem 1.5rem 4rem;
+  display: flex;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.auth__card {
+  width: 100%;
+}
+
+.auth__subtitle {
+  color: var(--color-choco-soft);
+  margin-bottom: 1.5rem;
+  font-size: 0.92rem;
+}
+
+.auth__footer-text {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--color-choco-soft);
+  margin: 1.25rem 0 0;
+}
+
+.auth__footer-text a {
+  color: var(--color-rose-dark);
+  font-weight: 600;
+  transition: .3s;
+}
+
+.auth__footer-text a:hover {
+  color: var(--color-gold);
+}
+@media (max-width:480px){
+
+    .auth{
+        padding:1.5rem 1rem 3rem;
+    }
+
+    .auth__subtitle{
+        font-size:.9rem;
+        text-align:center;
+    }
+
+    .auth__footer-text{
+        font-size:.82rem;
+    }
+
+}

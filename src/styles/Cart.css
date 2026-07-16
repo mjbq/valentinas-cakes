@@ -1,0 +1,827 @@
+/*=========================================
+        CARRITO - VALENTINA'S CAKES
+==========================================*/
+
+.cart{
+    padding:50px 0;
+    background:#fff7fb;
+    min-height:100vh;
+}
+
+.cart h1{
+    text-align:center;
+    margin-bottom:40px;
+    color:#9b4b68;
+    font-size:2.3rem;
+    font-weight:700;
+}
+
+/*=========================================
+            LAYOUT
+==========================================*/
+
+.cart__layout{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:35px;
+
+    align-items:start;
+
+}
+
+/*=========================================
+            TARJETAS
+==========================================*/
+
+.card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 45px rgba(0,0,0,.15);
+
+}
+
+/*=========================================
+        LISTA PRODUCTOS
+==========================================*/
+
+.cart__items{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+}
+
+/*=========================================
+        PRODUCTO
+==========================================*/
+
+.cart-item{
+
+    display:grid;
+
+    grid-template-columns:180px 1fr;
+
+    gap:28px;
+
+    align-items:flex-start;
+
+}
+
+/*=========================================
+        IMAGEN
+==========================================*/
+
+.cart-item__image{
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:18px;
+
+    object-fit:cover;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.15);
+
+    transition:.35s;
+
+}
+
+.cart-item__image:hover{
+
+    transform:scale(1.05);
+
+}
+
+/*=========================================
+        INFORMACIÓN
+==========================================*/
+
+.cart-item__info{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.cart-item__info h3{
+
+    color:#823654;
+
+    margin-bottom:8px;
+
+    font-size:1.5rem;
+
+}
+
+.cart-item__category{
+
+    display:inline-block;
+
+    background:#f6d8e5;
+
+    color:#8b3f60;
+
+    padding:6px 15px;
+
+    border-radius:30px;
+
+    width:max-content;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+.cart-item__price{
+
+    margin-top:15px;
+
+    font-size:1.1rem;
+
+    color:#555;
+
+}
+
+.cart-item__price strong{
+
+    color:#b04671;
+
+    font-size:1.25rem;
+
+}
+/*=========================================
+        PERSONALIZACIÓN
+==========================================*/
+
+.cart-item__customization{
+
+    margin:20px 0;
+
+    padding:20px;
+
+    background:#fff8fb;
+
+    border:2px dashed #efbfd1;
+
+    border-radius:18px;
+
+}
+
+.custom-badge{
+
+    display:inline-block;
+
+    background:#b04671;
+
+    color:#fff;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.custom-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+    margin-bottom:18px;
+
+}
+
+.custom-grid p{
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:white;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.05);
+
+}
+
+.custom-grid strong{
+
+    color:#9b4b68;
+
+    font-size:.80rem;
+
+    margin-bottom:6px;
+
+}
+
+.custom-grid span{
+
+    font-weight:600;
+
+    color:#555;
+
+}
+
+.custom-section{
+
+    margin-top:18px;
+
+}
+
+.custom-section strong{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#9b4b68;
+
+}
+
+.custom-section ul{
+
+    padding-left:18px;
+
+}
+
+.custom-section li{
+
+    margin-bottom:6px;
+
+    color:#555;
+
+}
+
+.custom-message{
+
+    margin-top:18px;
+
+    background:#ffe8f1;
+
+    padding:14px;
+
+    border-left:5px solid #b04671;
+
+    border-radius:10px;
+
+    font-style:italic;
+
+    color:#7c3b58;
+
+}
+
+/*=========================================
+        CANTIDAD
+==========================================*/
+
+.cart-item__quantity{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin:22px 0;
+
+}
+
+.quantity-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#b04671;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.30s;
+
+}
+
+.quantity-btn:hover{
+
+    background:#8f3458;
+
+    transform:scale(1.10);
+
+}
+
+.quantity-value{
+
+    min-width:30px;
+
+    text-align:center;
+
+    font-size:1.2rem;
+
+    font-weight:bold;
+
+    color:#823654;
+
+}
+
+/*=========================================
+        SUBTOTAL
+==========================================*/
+
+.cart-item__subtotal{
+
+    margin-top:15px;
+
+    font-size:1.2rem;
+
+    color:#555;
+
+}
+
+.cart-item__subtotal strong{
+
+    color:#b04671;
+
+    font-size:1.4rem;
+
+}
+
+/*=========================================
+        BOTÓN ELIMINAR
+==========================================*/
+
+.cart-item__remove{
+
+    margin-top:25px;
+
+    align-self:flex-start;
+
+    border:none;
+
+    background:#fff1f5;
+
+    color:#b04671;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.30s;
+
+}
+
+.cart-item__remove:hover{
+
+    background:#b04671;
+
+    color:white;
+
+}
+/*=========================================
+        RESUMEN DE COMPRA
+==========================================*/
+
+.cart__summary{
+
+    position:sticky;
+
+    top:110px;
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.cart__summary h2{
+
+    text-align:center;
+
+    color:#9b4b68;
+
+    margin-bottom:30px;
+
+    font-size:2rem;
+
+}
+
+.cart__summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px dashed #ead8df;
+
+    font-size:1rem;
+
+}
+
+.cart__summary-row span:last-child{
+
+    font-weight:700;
+
+    color:#823654;
+
+}
+
+.cart__summary-row--discount{
+
+    color:#198754;
+
+    font-weight:bold;
+
+}
+
+.cart__summary-total{
+
+    margin-top:20px;
+
+    padding-top:20px;
+
+    border-top:3px solid #f0d2de;
+
+    font-size:1.6rem;
+
+    font-weight:bold;
+
+}
+
+.cart__summary-total span:last-child{
+
+    color:#b04671;
+
+    font-size:2rem;
+
+}
+
+/*=========================================
+        BOTONES
+==========================================*/
+
+.btn-block{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.btn-primary{
+
+    background:#b04671;
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#93365a;
+
+    transform:translateY(-2px);
+
+}
+
+.btn-secondary{
+
+    background:#f4d7e3;
+
+    color:#823654;
+
+    border:none;
+
+}
+
+.btn-secondary:hover{
+
+    background:#eec3d4;
+
+}
+
+.summary-link{
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:#9b4b68;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+}
+
+.summary-link:hover{
+
+    color:#823654;
+
+    text-decoration:underline;
+
+}
+
+/*=========================================
+        CARRITO VACÍO
+==========================================*/
+
+.cart--empty{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:70vh;
+
+    text-align:center;
+
+}
+
+.cart--empty .container{
+
+    background:white;
+
+    padding:60px;
+
+    border-radius:25px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    max-width:550px;
+
+}
+
+.cart--empty h1{
+
+    color:#9b4b68;
+
+    margin:20px 0;
+
+}
+
+.cart--empty p{
+
+    color:#777;
+
+    font-size:1.1rem;
+
+}
+
+/*=========================================
+        ALERTAS
+==========================================*/
+
+.alert{
+
+    border-radius:14px;
+
+    padding:18px;
+
+    margin-bottom:25px;
+
+    border:none;
+
+}
+
+.alert-success{
+
+    background:#e7f8ed;
+
+    color:#1d6b3c;
+
+}
+
+.alert-info{
+
+    background:#eef6ff;
+
+    color:#245f9d;
+
+}
+
+/*=========================================
+        SCROLL
+==========================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#d69ab3;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#b04671;
+
+}
+
+/*=========================================
+        RESPONSIVE
+==========================================*/
+
+@media(max-width:992px){
+
+.cart__layout{
+
+grid-template-columns:1fr;
+
+}
+
+.cart__summary{
+
+position:relative;
+
+top:0;
+
+margin-top:30px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.cart-item{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.cart-item__image{
+
+margin:auto;
+
+width:220px;
+
+height:220px;
+
+}
+
+.cart-item__category{
+
+margin:auto;
+
+}
+
+.cart-item__quantity{
+
+justify-content:center;
+
+}
+
+.cart-item__remove{
+
+margin:auto;
+
+}
+
+.custom-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.cart{
+
+padding:20px 0;
+
+}
+
+.cart h1{
+
+font-size:1.8rem;
+
+}
+
+.cart__summary{
+
+padding:20px;
+
+}
+
+.cart-item__image{
+
+width:180px;
+
+height:180px;
+
+}
+
+.btn-block{
+
+padding:12px;
+
+}
+
+}
+
+/*=========================================
+        ANIMACIONES
+==========================================*/
+
+.card{
+
+animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}

@@ -1,0 +1,140 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border:1px solid rgba(201,88,126,.08);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+
+.product-card__image-link {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-pink-soft);
+}
+.product-card__image-link::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+right:0;
+
+bottom:0;
+
+height:70px;
+
+background:linear-gradient(
+
+transparent,
+
+rgba(0,0,0,.08)
+
+);
+
+}
+
+.product-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.product-card__badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: linear-gradient(
+      135deg,
+      var(--color-rose),
+      var(--color-rose-dark)
+  );
+  color: white;
+  padding: 7px 14px;
+  border-radius: 50px;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  box-shadow: 0 6px 15px rgba(0,0,0,.15);
+}
+
+.product-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem 1.2rem 1.3rem;
+  gap: 0.9rem;
+}
+
+.product-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.product-card__cta {
+  margin-top: auto;
+}
+
+.product-card__category {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.product-card__name {
+  margin: 0;
+  font-size: 1.25rem;
+  min-height: 60px;
+}
+
+.product-card__name a:hover {
+  color: var(--color-rose-dark);
+}
+
+.product-card__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0.15rem 0;
+}
+
+.product-card__price-old{
+    font-size:.9rem;
+    color:#999;
+    text-decoration:line-through;
+}
+
+.product-card__price-offer {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-rose-dark);
+}
+
+.product-card__stock{
+    font-size:.82rem;
+    font-weight:500;
+}
+
+.product-card__stock.is-out {
+  color: var(--color-error);
+  font-weight: 600;
+}
+.product-card__cta{
+    transition:.25s;
+}
+.product-card__cta:hover{
+transform:scale(1.03);
+}

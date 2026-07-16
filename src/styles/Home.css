@@ -1,0 +1,290 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(251,228,236,.8), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(232,212,160,.35), transparent 35%),
+    linear-gradient(160deg, var(--color-pink-soft) 0%, var(--color-bg) 70%);
+  padding: 5rem 0;
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    background:rgba(255,255,255,.25);
+    top:-120px;
+    right:-80px;
+    filter:blur(20px);
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(201,88,126,.08);
+    bottom:-80px;
+    left:-60px;
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  justify-content: space-between;
+}
+
+.hero__text {
+  max-width: 560px;
+}
+
+.hero__text h1{
+    font-size:3.8rem;
+    line-height:1.1;
+    margin-bottom:1rem;
+}
+
+.hero__subtitle{
+    font-size:1.15rem;
+    line-height:1.8;
+    color:var(--color-choco-soft);
+    margin-bottom:2rem;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.hero__actions .btn{
+    min-width:190px;
+}
+
+.hero__logo-wrap {
+  flex-shrink: 0;
+}
+
+.hero__logo{
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    object-fit:cover;
+    border:8px solid #fff;
+    box-shadow:var(--shadow-soft);
+    transition:.35s;
+}
+
+.hero__logo:hover{
+    transform:scale(1.04) rotate(2deg);
+}
+
+.about{
+    padding:5rem 0;
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.about__image-frame {
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-pink-soft), var(--color-gold-light));
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.6) 4px, transparent 4.5px),
+    linear-gradient(135deg, var(--color-pink-soft), var(--color-gold-light));
+  background-size: 26px 26px, cover;
+}
+
+.featured{
+    padding:5rem 0;
+}
+
+.featured__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 860px) {
+  .hero__inner {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero__text {
+    max-width: 100%;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .about__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about__image {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .hero__text h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero__subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero__logo {
+    width: 170px;
+    height: 170px;
+    border-width: 4px;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+}
+.hero__text{
+    animation:fadeHero .8s ease;
+}
+
+.hero__logo-wrap{
+    animation:fadeLogo 1s ease;
+}
+
+@keyframes fadeHero{
+
+from{
+opacity:0;
+transform:translateX(-40px);
+}
+
+to{
+opacity:1;
+transform:none;
+}
+
+}
+
+@keyframes fadeLogo{
+
+from{
+opacity:0;
+transform:translateX(40px);
+}
+
+to{
+opacity:1;
+transform:none;
+}
+
+}
+/*==========================
+ BENEFICIOS
+===========================*/
+
+.benefits{
+    padding:4rem 0;
+}
+
+.benefits__grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2rem;
+}
+
+.benefit-card{
+
+    background:white;
+
+    padding:2rem;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-card);
+
+    transition:.3s;
+
+}
+
+.benefit-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-soft);
+
+}
+
+.benefit-card__icon{
+
+    width:40px;
+
+    height:40px;
+
+    margin:auto;
+
+    margin-bottom:1rem;
+
+    border-radius:50%;
+
+    background:var(--color-pink-soft);
+
+    color:var(--color-rose-dark);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:2rem;
+
+}
+
+.benefit-card h3{
+
+    margin-bottom:.8rem;
+
+    color:var(--color-rose-dark);
+
+}
+
+.benefit-card p{
+
+    color:var(--color-choco-soft);
+
+    font-size:.92rem;
+
+    line-height:1.6;
+
+}
+
+@media(max-width:900px){
+
+.benefits__grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
