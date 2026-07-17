@@ -8,11 +8,10 @@ import './ProductCard.css';
 export default function ProductCard({ product }: { product: Product }) {
   const { addToCart } = useCart();
   const { currentUser } = useAuth();
-
   const hasOffer = typeof product.offerPrice === 'number';
   const outOfStock = product.stock <= 0;
 
-  function handleAdd() {
+function handleAdd() {
     if (!currentUser) {
       alert('Debes iniciar sesión para agregar productos al carrito.');
       return;
